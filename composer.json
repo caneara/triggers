@@ -1,0 +1,34 @@
+{
+    "name": "mattkingshott/triggers",
+    "description": "A package to add database trigger support to Laravel",
+    "keywords": [
+        "triggers",
+        "php",
+        "laravel",
+        "database"
+    ],
+    "type": "library",
+    "license": "MIT",
+    "homepage": "https://github.com/mattkingshott/triggers",
+    "autoload": {
+        "psr-4": {
+            "Triggers\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Triggers\\Tests\\": "tests"
+        }
+    },
+    "require": {
+        "php": "^8.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.0",
+        "phpunit/phpunit": "^9.0"
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    },
+    "minimum-stability": "stable"
+}
