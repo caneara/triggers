@@ -39,7 +39,9 @@ Trigger::table('posts');
 
 By default, the class will generate a name for the trigger using the following convention:
 
-> trigger_{TABLE}_{TIME}_{EVENT}
+```
+trigger_{TABLE}_{TIME}_{EVENT}
+```
 
 However, since trigger names must be unique across the database, if you were to create two triggers that used the same event and time (these concepts are covered in the next section), then you'd get an error.
 
@@ -51,7 +53,9 @@ Trigger::table('posts')->key('custom');
 
 When a key is specified, the trigger name is derived from the following convention:
 
-> trigger_{TABLE}_{KEY}_{TIME}_{EVENT}
+```
+trigger_{TABLE}_{KEY}_{TIME}_{EVENT}
+```
 
 ### Event and time
 
