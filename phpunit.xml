@@ -11,6 +11,6 @@
     </testsuite>
   </testsuites>
   <php>
-    <env name="APP_NAME" value="waterfall"/>
+    <env name="APP_NAME" value="triggers"/>
   </php>
 </phpunit>
