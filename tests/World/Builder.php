@@ -3,6 +3,7 @@
 namespace Triggers\Tests\World;
 
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 
 class Builder
 {
@@ -40,6 +41,11 @@ class Builder
      */
     public static function sqliteCreate(): void
     {
+        if (!File::exists('tests/database/database.sqlite')) {
+            File::makeDirectory('tests/database');
+            File::put('tests/database/database.sqlite', '');
+        }
+
         $setup = [
             'driver' => 'sqlite',
             'database' => 'tests/database/database.sqlite',
