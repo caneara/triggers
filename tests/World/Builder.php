@@ -1,4 +1,4 @@
-<?php declare(strict_types = 1);
+<?php declare(strict_types=1);
 
 namespace Triggers\Tests\World;
 
@@ -10,23 +10,23 @@ class Builder
      * Construct the world.
      *
      */
-    public static function create() : void
+    public static function sqlCreate(): void
     {
         $setup = [
-            'driver'         => 'mysql',
-            'url'            => env('DATABASE_URL'),
-            'host'           => env('DB_HOST', '127.0.0.1'),
-            'port'           => env('DB_PORT', 3306),
-            'database'       => env('DB_DATABASE', 'testing'),
-            'username'       => env('DB_USERNAME', 'root'),
-            'password'       => env('DB_PASSWORD', ''),
-            'unix_socket'    => env('DB_SOCKET', ''),
-            'charset'        => 'utf8mb4',
-            'collation'      => 'utf8mb4_unicode_520_ci',
-            'prefix'         => '',
+            'driver' => 'mysql',
+            'url' => env('DATABASE_URL'),
+            'host' => env('DB_HOST', '127.0.0.1'),
+            'port' => env('DB_PORT', 3306),
+            'database' => env('DB_DATABASE', 'testing'),
+            'username' => env('DB_USERNAME', 'root'),
+            'password' => env('DB_PASSWORD', ''),
+            'unix_socket' => env('DB_SOCKET', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_520_ci',
+            'prefix' => '',
             'prefix_indexes' => true,
-            'strict'         => true,
-            'engine'         => null,
+            'strict' => true,
+            'engine' => null,
         ];
 
         app('config')->set('database.default', 'mysql');
@@ -35,10 +35,26 @@ class Builder
     }
 
     /**
+     * Construct the world using sqlite.
+     *
+     */
+    public static function sqliteCreate(): void
+    {
+        $setup = [
+            'driver' => 'sqlite',
+            'database' => 'tests/database/database.sqlite',
+        ];
+
+        app('config')->set('database.default', 'sqlite');
+        app('config')->set('database.migrations', 'migrations');
+        app('config')->set('database.connections.sqlite', $setup);
+    }
+
+    /**
      * Seed the database.
      *
      */
-    public static function seed() : void
+    public static function seed(): void
     {
         DB::table('posts')->truncate();
 

@@ -12,13 +12,23 @@ class Test extends TestCase
      * Setup the test environment.
      *
      */
-    protected function setUp() : void
+    protected function setUp(): void
     {
         parent::setUp();
 
-        Builder::create();
+        rescue(function () {
 
-        $this->loadMigrationsFrom(__DIR__ . '/Migrations');
+            Builder::sqlCreate();
+
+            $this->loadMigrationsFrom(__DIR__ . '/Migrations');
+
+        }, function () {
+
+            Builder::sqliteCreate();
+
+            $this->loadMigrationsFrom(__DIR__ . '/Migrations');
+
+        });
 
         Builder::seed();
     }
