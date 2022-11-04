@@ -1,5 +1,5 @@
 {
-    "name": "mattkingshott/triggers",
+    "name": "caneara/triggers",
     "description": "A package to add database trigger support to Laravel",
     "keywords": [
         "triggers",
@@ -9,7 +9,7 @@
     ],
     "type": "library",
     "license": "MIT",
-    "homepage": "https://github.com/mattkingshott/triggers",
+    "homepage": "https://github.com/caneara/triggers",
     "autoload": {
         "psr-4": {
             "Triggers\\": "src"
